@@ -1,8 +1,8 @@
 const { Router } = require("express");
 
 const {
-  indexVista, 
-  createVista, 
+  indexView, 
+  createView, 
   index,
   show,
   update,
@@ -14,8 +14,8 @@ const router = Router();
 
 //Vistas
 
-router.get("/", indexVista);
-router.get("/create", createVista);
+router.get("/", indexView);
+router.get("/create", createView);
 
 // CRUD
 router.get("/api", index);

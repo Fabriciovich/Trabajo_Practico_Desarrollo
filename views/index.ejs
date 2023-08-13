@@ -1,9 +1,7 @@
-<%- include('../layouts/head.ejs') ;%>
-
-
+<%- include('../layouts/head.ejs') %>
 
 <body class="h-100 d-flex flex-column">
-    <%- include('../layouts/nav'); %>
+    <%- include('../layouts/nav.ejs') %>
     <div id="alertBanner" class="alert alert-warning alert-dismissible fade" role="alert">
         <span id="bannerMessage"></span>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -23,7 +21,7 @@
             </section>
         </main>
     </div>
-    <%- include('../layouts/footer'); %>
+    <%- include('../layouts/footer.ejs') %>
     <script src="/js/index.js"></script>
 </body>
 

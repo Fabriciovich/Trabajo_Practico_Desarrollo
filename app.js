@@ -6,7 +6,7 @@ const fileUpload = require('express-fileupload');
 
 const express = require('express');
 require('dotenv').config(); // Importa el módulo 'dotenv' para cargar variables de entorno desde el archivo .env
-const port = process.env.PORT || 3000; // Establece el puerto del servidor obteniendo el valor de la variable de entorno PORT o usa el puerto 3000 por defecto
+const port = process.env.PORT || 4000; // Establece el puerto del servidor obteniendo el valor de la variable de entorno PORT o usa el puerto 3000 por defecto
 
 const path = require('path');
 
@@ -27,7 +27,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // Routes
-// app.use(require('./routes/galeria.routes'));
+app.use(require('./routes/galeria.routes'));
 
 // Starting the server
 app.listen(port, () => console.log(`Server on port ${port}`)); 
