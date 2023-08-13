@@ -15,7 +15,7 @@ const router = Router();
 //Vistas
 
 router.get("/", indexView);
-router.get("/create", createView);
+router.get("/crear", createView);
 
 // CRUD
 router.get("/api", index);

@@ -5,11 +5,11 @@ const Image = require("../models/imagenes");
 
 //VISTAS
 const indexView = (_req, res) => {
-  res.render("views/index", { mensaje: "" });
+  res.render("index", { mensaje: "" });
 };
 
 const createView = (_req, res) => {
-  res.render("views/crear");
+  res.render("crear");
 };
 
 //APIS
@@ -39,6 +39,12 @@ const show = async (req, res) => {
     },
   });
 
+  const uploadPath = path.join(
+    __dirname,
+    "../files/",
+    `${image.original_filename}.${image.format}`
+  );
+
   return res.sendFile(uploadPath);
 };
 
@@ -59,6 +65,8 @@ const store = async (req, res) => {
       .status(400)
       .json({ mensaje: "La imagen ya existe en la base de datos." });
   }
+
+  const uploadPath = path.join(__dirname, "../files/", image.name);
 
   image.mv(uploadPath, function (err) {
     if (err) return res.status(500).json(err);
@@ -109,6 +117,12 @@ const destroy = async (req, res) => {
       .status(404)
       .json({ message: "La imagen NO existe en la base de datos." });
   }
+
+  const uploadPath = path.join(
+    __dirname,
+    "../files/",
+    `${image.original_filename}.${image.format}`
+  );
 
   fs.unlink(uploadPath, function (err) {
     if (err && err.code == "ENOENT") {
